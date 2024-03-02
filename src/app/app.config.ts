@@ -4,10 +4,9 @@ import {provideFirebaseApp,initializeApp} from '@angular/fire/app'
 import {provideFirestore, getFirestore} from '@angular/fire/firestore'
 
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(),
+  providers: [provideRouter(routes), 
   importProvidersFrom([
     provideFirebaseApp(() =>initializeApp({
       apiKey: "AIzaSyAF6aPR8wOBmS_wMAff4eJsio2AEzthpZs",
@@ -16,7 +15,8 @@ export const appConfig: ApplicationConfig = {
       storageBucket: "qrangular.appspot.com",
       messagingSenderId: "433831653327",
       appId: "1:433831653327:web:8e304ff485ba3cce04ecba"
-    }) ),
+    }) 
+    ),
     provideFirestore (() => getFirestore()),
   ])]
 };
