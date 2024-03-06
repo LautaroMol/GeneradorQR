@@ -8,11 +8,9 @@ import { Router, RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private router: Router) {}
   title = 'generadorQR';
 
-  ngOnInit() {
-    this.router.navigate(['/codes']);
-  }
+  
 }
