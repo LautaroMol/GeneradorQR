@@ -1,1 +1,36 @@
-<p>list works!</p>
+<button
+routerLink="/form"
+type="button"
+class=" ml-4 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white
+shadow-sm hover:bg-indigo-500 focus-visible:outline ">
+Nuevo
+</button>
+<ul role="list" class="divide-y divide-gray-100">
+    @for (item of codeList; track $index) {
+        <li class="flex justify-between min-w-0 gap-x-4 p-3 w-full">
+            <div class="flex justify-between min-w-0 gap-x-4 p-3 w-full">
+                <div class="min-w-0 flex-auto">
+                    <p class="text-sm font-semibold leading-6 text-gray-900">
+                        {{item.name}}
+                    </p>
+                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+                        {{item.url}}
+                    </p>
+                </div>
+                <button
+                (click)="openEditForm(item)"
+                type="button"
+                class="rounded-md bg-indigo-800 px-3 py-2 text-sm font-semibold text-white shadow-sm
+                hover:bg-indigo-500 focus-visible:outline">
+                Editar
+                </button>
+                <button
+                (click)="openViewForm(item)"
+                type="button"
+                class="rounded-md bg-indigo-800 px-3 py-2 text-sm font-semibold text-white shadow-sm
+                hover:bg-indigo-500 focus-visible:outline"> Abrir
+                </button>
+            </div>
+        </li>
+    }
+</ul>
