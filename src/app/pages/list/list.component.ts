@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Firestore,addDoc, collection } from '@angular/fire/firestore';
-import { getDocs } from 'firebase/firestore';
+import { deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { Code } from '../../models/code';
 
 @Component({
@@ -30,5 +30,8 @@ export class ListComponent implements OnInit{
   }
   public openViewForm(item:Code){
     this._router.navigateByUrl(`/view?id=${item.id}`);
+  }
+  async Delete(item:Code){
+   await deleteDoc(doc(this._codeCollection,'codes',`${item.id}`));
   }
 }
